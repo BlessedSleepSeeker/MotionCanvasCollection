@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Sci-Bi';
+    src: local('Sci-Bi'),
+        url(fonts/sci-bi.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Sci-Bi Glitched';
+    src: local('Sci-Bi Glitched'),
+        url(fonts/sci-bi-glitched.ttf) format('truetype');
+}
