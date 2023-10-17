@@ -1,5 +1,5 @@
 {
-  "name": "testing-ground",
+  "name": "pixel-art-presentation",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,13 +7,13 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@motion-canvas/core": "^3.9.0",
-    "@motion-canvas/2d": "^3.9.0",
+    "@motion-canvas/core": "^3.11.0",
+    "@motion-canvas/2d": "^3.11.0",
     "@motion-canvas/ffmpeg": "^1.1.0"
   },
   "devDependencies": {
-    "@motion-canvas/ui": "^3.9.0",
-    "@motion-canvas/vite-plugin": "^3.9.0",
+    "@motion-canvas/ui": "^3.11.0",
+    "@motion-canvas/vite-plugin": "^3.11.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.4"
   }
