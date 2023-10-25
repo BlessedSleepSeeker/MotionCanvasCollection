@@ -1,10 +1,13 @@
-import {makeScene2D, Circle, Grid, Txt, Layout} from '@motion-canvas/2d';
-import {all, createRef} from '@motion-canvas/core';
+import {makeScene2D, Circle, Grid, Txt, Layout, Img, Rect, Line} from '@motion-canvas/2d';
+import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
+
   const grid = createRef<Grid>();
-  const title = createRef<Txt>();
-  const subtitle = createRef<Txt>();
+  const pixel = createRef<Rect>();
+  const line = createRef<Line>();
+
+
 
   view.add(
     <>
@@ -12,26 +15,56 @@ export default makeScene2D(function* (view) {
         ref={grid}
         height={'100%'}
         width={'100%'}
-        stroke={'#FFF'}
+        stroke={'#666'}
         strokeFirst={true}
         fill={'#FFFFFF'}
-        spacing={200}
-        start={0.5}
-        end={0.5}
+        spacing={30}
+        start={1}
+        end={0}
         />
-      <Layout direction={'column'} alignItems={'center'} layout>
-        <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Pixel Art</Txt>
-        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Or the art of putting tiny squares on a grid</Txt>
-      </Layout>
+        <Rect
+          ref={pixel}
+          height={0}
+          width={0}
+          fill={'#FFFFFF'}
+        />
+        <Line
+        ref={line}
+        position={[-300, -300]}
+        stroke={'#FFF'}
+        lineWidth={8}
+        startArrow
+        endArrow
+        opacity={0}
+        points={[
+          [0, 0],
+          [0, 500],
+          [500, 500],
+        ]}
+      />
     </>,
   );
 
+  yield* slideTransition(Direction.Right);
   yield* all(
-    grid().stroke('#666', 2),
-    grid().end(1, 2),
-    grid().start(0, 2),
-    grid().spacing(30, 3),
-    title().opacity(1, 3),
-    subtitle().opacity(1, 3),
+    grid().spacing(1000, 3),
+    grid().opacity(0, 2),
+    pixel().size(100, 3),
   );
+
+  yield* beginSlide('canvas')
+  yield* all(
+    grid().spacing(100, 3),
+    grid().opacity(1, 1),
+    pixel().opacity(0, 1),
+  );
+  yield* all(
+    line().opacity(1, 1),
+  );
+
+  yield* all(
+    line().points(),
+  );
+
+  yield* beginSlide('sprite')
 });

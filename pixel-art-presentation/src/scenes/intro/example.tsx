@@ -33,40 +33,40 @@ export default makeScene2D(function* (view) {
           <Img
             ref={ref1}
             src="https://upload.wikimedia.org/wikipedia/en/4/4e/World_1-1_Super_Mario_Bros.png"
-            width={300}
+            width={600}
             radius={2}
             antialiased={false}
           />,
-          <Txt ref={source1} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Super Mario Bros - 1985</Txt>
+          <Txt ref={source1} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Super Mario Bros - 1985</Txt>
         </Layout>
         <Layout direction={'column'} alignItems={'center'} gap={5} layout>
           <Img
             ref={ref2}
             src="https://upload.wikimedia.org/wikipedia/en/1/14/GBA_Advance_Wars.png"
-            width={300}
+            width={600}
             radius={2}
             antialiased={false}
           />,
-          <Txt ref={source2} opacity={0}  fontFamily={'Sci-Bi'}   fill="#FFF" antialiased={false}>Advance War - 2001</Txt>
+          <Txt ref={source2} opacity={1}  fontFamily={'Sci-Bi'}   fill="#FFF" antialiased={false}>Advance War - 2001</Txt>
         </Layout>
         </Layout>
         <Layout direction={'row'} alignItems={'center'} gap={20} layout>
           <Layout direction={'column'} alignItems={'center'} gap={5} layout>
-            <Txt ref={source3} opacity={0}  fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Mark Ferarri - 1987 to 1997</Txt>
+            <Txt ref={source3} opacity={1}  fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Mark Ferarri - 1987 to 1997</Txt>
             <Img
               ref={ref3}
               src="https://images.squarespace-cdn.com/content/v1/5c12ee148f5130143eb7f707/1546543002163-Y9I3M67OLPRAUNLW5UKT/Cove.jpg"
-              width={300}
+              width={600}
               radius={2}
               antialiased={false}
             />,
           </Layout>
           <Layout direction={'column'} alignItems={'center'} gap={5} layout>
-            <Txt ref={source4} opacity={0}  fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Maniac Mansion - 1987</Txt>
+            <Txt ref={source4} opacity={1}  fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Maniac Mansion - 1987</Txt>
             <Img
               ref={ref4}
               src="https://upload.wikimedia.org/wikipedia/en/7/76/Maniac_Mansion.png"
-              width={300}
+              width={600}
               radius={2}
               antialiased={false}
             />,
@@ -80,24 +80,14 @@ export default makeScene2D(function* (view) {
   yield* slideTransition(Direction.Right);
   yield* chain(
     ref1().width(1200, 3),
-    source1().opacity(1, 1),
-    ref1().width(300, 3),
-    source1().opacity(0, 0.3),
+    ref1().width(600, 3),
     ref2().width(1200, 3),
-    source2().opacity(1, 1),
-    ref2().width(300, 3),
-    source2().opacity(0, 0.3),
+    ref2().width(600, 3),
     ref3().width(1200, 3),
-    source3().opacity(1, 1),
-    ref3().width(300, 3),
-    source3().opacity(0, 0.3),
+    ref3().width(600, 3),
     ref4().width(1200, 3),
-    source4().opacity(1, 1),
-    ref4().width(300, 3),
-    source4().opacity(0, 0.3),
-  )
+    ref4().width(600, 3),
+  );
 
-
-  yield* beginSlide('example part 2')
   yield* beginSlide('vocab')
 });
