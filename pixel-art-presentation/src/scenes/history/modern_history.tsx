@@ -1,5 +1,6 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Line} from '@motion-canvas/2d';
 import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
+import hld from '../../img/hyperlightdrifter.png'
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
@@ -22,32 +23,37 @@ export default makeScene2D(function* (view) {
         end={0}
         />
       <Layout direction={'column'} alignItems={'center'} gap={50} layout>
-        <Txt fontFamily={'Sci-Bi'} fill="#FFF" fontSize={100} antialiased={false}>Inspirations</Txt>
+        <Txt fontFamily={'Sci-Bi'} fill="#FFF" fontSize={100} antialiased={false}>Histoire Moderne</Txt>
         <Layout direction={'row'} alignItems={'center'} gap={30} layout>
           <Img
             ref={img1}
-            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Pompei_BW_2013-05-13_11-33-36.jpg/1024px-Pompei_BW_2013-05-13_11-33-36.jpg"}
-            width={600}
-            height={600}
+            src={"https://upload.wikimedia.org/wikipedia/commons/f/f8/Pong.png"}
+            width={400}
+            height={400}
           />
           <Img
             ref={img2}
-            src={"https://upload.wikimedia.org/wikipedia/commons/b/b8/Cross_stitch_embroidery.jpg"}
-            width={600}
-            height={600}
+            src={"https://1.bp.blogspot.com/-J58XTSgOhCg/XyAnO-pA2xI/AAAAAAAAowA/xmVnd3VofV8d6zgq2CWkhXUQPbZNoF2WQCLcBGAsYHQ/s1600/image1.png"}
+            width={400}
+            height={400}
           />
           <Img
             ref={img3}
-            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Luce_morning_d%C3%A9tail_pieds.jpg/1280px-Luce_morning_d%C3%A9tail_pieds.jpg"}
-            width={600}
-            height={600}
+            src={"https://upload.wikimedia.org/wikipedia/en/6/6a/Super_Mario_64_box_cover.jpg"}
+            width={400}
+            height={400}
+          />
+          <Img
+            src={hld}
+            width={400}
+            height={400}
           />
         </Layout>
       </Layout>
       
     </>,
   );
-  yield* slideTransition(Direction.Bottom);
+  yield* slideTransition(Direction.Right);
   
-  yield* beginSlide('modern history')
+  yield* beginSlide('history')
 });

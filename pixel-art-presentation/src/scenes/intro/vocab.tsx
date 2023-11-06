@@ -1,11 +1,13 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Rect, Line} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
+import {Direction, all, beginSlide, chain, createRef, slideTransition} from '@motion-canvas/core';
+import sword5x5 from '../../img/sword5x5.png'
 
 export default makeScene2D(function* (view) {
 
   const grid = createRef<Grid>();
   const pixel = createRef<Rect>();
   const line = createRef<Line>();
+  const sprite = createRef<Img>();
 
 
 
@@ -42,6 +44,12 @@ export default makeScene2D(function* (view) {
           [500, 500],
         ]}
       />
+      <Img
+            ref={sprite}
+            src={sword5x5}
+            position={[-50, -50]}
+            opacity={0}
+          />
     </>,
   );
 
@@ -62,9 +70,23 @@ export default makeScene2D(function* (view) {
     line().opacity(1, 1),
   );
 
-  yield* all(
-    line().points(),
+  yield* chain(
+    line().points([[0, 100],
+      [0, 500],
+      [500, 500]], 2),
+    line().points([[0, -100],
+      [0, 500],
+      [300, 500]], 2),
+    line().points([[0, 0],
+      [0, 500],
+      [500, 500]], 2)
   );
 
   yield* beginSlide('sprite')
+  yield* sprite().opacity(1, 2)
+
+  yield* beginSlide('palette')
+  
+
+
 });
