@@ -5,6 +5,7 @@ import sword5x5 from '../../img/sword5x5.png'
 export default makeScene2D(function* (view) {
 
   const grid = createRef<Grid>();
+  const title = createRef<Txt>();
 
   view.add(
     <>
@@ -19,6 +20,7 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
+        <Txt ref={title} opacity={1} position={[0, -300]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Palette</Txt>
         <Layout direction={'row'} alignItems={'center'} gap={400} layout>
         <Layout direction={'row'} alignItems={'center'} gap={0} layout>
         <Layout direction={'column'} alignItems={'center'} gap={0} layout>

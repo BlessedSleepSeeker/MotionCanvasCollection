@@ -1,10 +1,24 @@
-import {makeScene2D, Circle, Grid, Txt, Layout} from '@motion-canvas/2d';
-import {all, createRef} from '@motion-canvas/core';
+import {makeScene2D, Circle, Grid, Txt, Layout, Img, Line, Rect, Node} from '@motion-canvas/2d';
+import {Direction, all, beginSlide, chain, createRef, loop, slideTransition} from '@motion-canvas/core';
+import dolphin from "../../img/dolphin.png"
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const title = createRef<Txt>();
-  const subtitle = createRef<Txt>();
+  const text = createRef<Txt>();
+  const img = createRef<Img>();
+  const line = createRef<Line>();
+  const constraints = createRef<Node>();
+  const palette = createRef<Layout>();
+
+  const color1 = createRef<Rect>();
+  const color2 = createRef<Rect>();
+  const color3 = createRef<Rect>();
+  const color4 = createRef<Rect>();
+  const color5 = createRef<Rect>();
+  const color6 = createRef<Rect>();
+  const color7 = createRef<Rect>();
+  const color8 = createRef<Rect>();
 
   view.add(
     <>
@@ -12,26 +26,134 @@ export default makeScene2D(function* (view) {
         ref={grid}
         height={'100%'}
         width={'100%'}
-        stroke={'#FFF'}
+        stroke={'#666'}
         strokeFirst={true}
         fill={'#FFFFFF'}
-        spacing={200}
-        start={0.5}
-        end={0.5}
+        spacing={100}
+        start={1}
+        end={0}
         />
-      <Layout direction={'column'} alignItems={'center'} layout>
-        <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Pixel Art</Txt>
-        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Or the art of putting tiny squares on a grid</Txt>
-      </Layout>
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={200}>Definition</Txt>
+        <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}></Txt>
+        <Img
+            ref={img}
+            src={dolphin}
+            width={1200}
+            height={800}
+            position={[0, 0]}
+            opacity={0} 
+          />
+          <Node ref={constraints} opacity={0} >
+        <Layout ref={palette} direction={'row'} alignItems={'center'} gap={0} position={[-400, 100]} layout>
+        <Layout direction={'column'} alignItems={'center'} gap={0} layout>
+          <Rect 
+            ref={color1}
+            width={100}
+            height={100}
+            fill={'fdfdf8'}
+          />
+          <Rect 
+            ref={color2}
+            width={100}
+            height={100}
+            fill={'7b53ad'}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'2d93dd'}
+            ref={color3}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'e6da29'}
+            ref={color4}
+          />
+        </Layout>
+        <Layout direction={'column'} alignItems={'center'} gap={0} layout>
+        <Rect 
+            width={100}
+            height={100}
+            fill={'1b1c33'}
+            ref={color5}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'28c641'}
+            ref={color6}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'d32734'}
+            ref={color7}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'da7d22'}
+            ref={color8}
+          />
+        </Layout>
+        </Layout>
+        <Line
+        ref={line}
+        stroke={'#FFF'}
+        lineWidth={8}
+        startArrow
+        endArrow
+        position={[300, -200]}
+        opacity={1}
+        points={[
+          [0, 0],
+          [0, 500],
+          [500, 500],
+        ]}
+      />
+      </Node>
     </>,
   );
 
+  yield* slideTransition(Direction.Bottom);
+  yield* beginSlide('medium')
   yield* all(
-    grid().stroke('#666', 2),
-    grid().end(1, 2),
-    grid().start(0, 2),
-    grid().spacing(30, 3),
-    title().opacity(1, 3),
-    subtitle().opacity(1, 3),
+    title().opacity(0, 1),
+    text().opacity(1, 1),
+    text().text("Médium ou Courant Artistique ?", 2)
+  )
+  yield* beginSlide('constraints')
+  yield* all(
+    text().text("Constraints Breeds Creativity", 2),
+    text().position([0, -425 ], 2),
+    constraints().opacity(1, 2)
+  )
+  yield* loop(3,
+    () => all(
+      line().points([[0, 100],
+        [0, 500],
+        [300, 500]], 1).to([[0, 0],
+            [0, 500],
+            [500, 500]], 1),
+        color1().opacity(0, 1).to(1, 1),
+        color5().opacity(0, 1).to(1, 1),
+        color4().opacity(0, 1).to(1, 1),
+        color8().opacity(0, 1).to(1, 1),
+        color2().fill("9bbc0f", 1).to("7b53ad", 1),
+        color3().fill("306230", 1).to("2d93dd", 1),
+        color6().fill("8bac0f", 1).to("28c641", 1),
+        color7().fill("0f380f", 1).to("d32734", 1),
+    )
   );
+
+
+  yield* beginSlide('everypixel')
+  yield* all(
+    constraints().opacity(0, 1),
+    text().text("Every Pixel Matter", 2),
+    img().opacity(1, 2)
+  )
+
+  yield* beginSlide('pareidolia')
 });

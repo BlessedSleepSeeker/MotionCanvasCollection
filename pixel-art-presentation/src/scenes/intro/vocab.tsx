@@ -8,6 +8,7 @@ export default makeScene2D(function* (view) {
   const pixel = createRef<Rect>();
   const line = createRef<Line>();
   const sprite = createRef<Img>();
+  const title = createRef<Txt>();
 
 
 
@@ -24,6 +25,7 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
+        <Txt ref={title} opacity={1} position={[0, -400]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Canvas</Txt>
         <Rect
           ref={pixel}
           height={0}
@@ -83,7 +85,11 @@ export default makeScene2D(function* (view) {
   );
 
   yield* beginSlide('sprite')
-  yield* sprite().opacity(1, 2)
+
+  yield* all(
+    sprite().opacity(1, 2),
+    title().text("Sprite", 2)
+    )
 
   yield* beginSlide('palette')
   

@@ -1,10 +1,12 @@
-import {makeScene2D, Circle, Grid, Txt, Layout} from '@motion-canvas/2d';
-import {all, createRef} from '@motion-canvas/core';
+import {makeScene2D, Circle, Grid, Txt, Layout, Img} from '@motion-canvas/2d';
+import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
+import bleeding from "../../img/bleeding.png"
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const title = createRef<Txt>();
   const subtitle = createRef<Txt>();
+  const img = createRef<Img>();
 
   view.add(
     <>
@@ -12,26 +14,37 @@ export default makeScene2D(function* (view) {
         ref={grid}
         height={'100%'}
         width={'100%'}
-        stroke={'#FFF'}
+        stroke={'#666'}
         strokeFirst={true}
         fill={'#FFFFFF'}
-        spacing={200}
-        start={0.5}
-        end={0.5}
+        spacing={100}
+        start={1}
+        end={0}
         />
-      <Layout direction={'column'} alignItems={'center'} layout>
-        <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Pixel Art</Txt>
-        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Or the art of putting tiny squares on a grid</Txt>
-      </Layout>
-    </>,
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, 0]} fill="#FFF" antialiased={false} fontSize={150}>Technologie et Pixel-Art</Txt>
+        <Img
+            ref={img}
+            src={bleeding}
+            height={700}
+            position={[0, 0]}
+            opacity={0}
+          />
+    </>, 
   );
 
+  yield* slideTransition(Direction.Bottom);
+
+  yield* beginSlide('crt')
+  
   yield* all(
-    grid().stroke('#666', 2),
-    grid().end(1, 2),
-    grid().start(0, 2),
-    grid().spacing(30, 3),
-    title().opacity(1, 3),
-    subtitle().opacity(1, 3),
-  );
+    title().text("CRT vs LCD", 1),
+  )
+  yield* all(
+    title().position([0, -425], 1),
+    title().fontSize(100, 1),
+    img().opacity(1, 3)
+  )
+  
+  yield* beginSlide('paletteswap')
+
 });

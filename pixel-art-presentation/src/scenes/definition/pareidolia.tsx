@@ -1,10 +1,11 @@
-import {makeScene2D, Circle, Grid, Txt, Layout} from '@motion-canvas/2d';
-import {all, createRef} from '@motion-canvas/core';
+import {makeScene2D, Circle, Grid, Txt, Layout, Img} from '@motion-canvas/2d';
+import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const title = createRef<Txt>();
   const subtitle = createRef<Txt>();
+  const img = createRef<Img>();
 
   view.add(
     <>
@@ -12,26 +13,36 @@ export default makeScene2D(function* (view) {
         ref={grid}
         height={'100%'}
         width={'100%'}
-        stroke={'#FFF'}
+        stroke={'#666'}
         strokeFirst={true}
         fill={'#FFFFFF'}
-        spacing={200}
-        start={0.5}
-        end={0.5}
+        spacing={100}
+        start={1}
+        end={0}
         />
-      <Layout direction={'column'} alignItems={'center'} layout>
-        <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Pixel Art</Txt>
-        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Or the art of putting tiny squares on a grid</Txt>
-      </Layout>
-    </>,
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -425]} fill="#FFF" antialiased={false} fontSize={100}>Paréïdolie</Txt>
+        <Layout direction={'row'} alignItems={'center'} gap={30} layout>
+        <Img
+            ref={img}
+            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/%D0%91%D0%BE%D0%BB%D0%BE%D1%82%D0%BE-%D1%81%D0%BC%D0%B0%D0%B9%D0%BB%D0%B8%D0%BA.jpg/1280px-%D0%91%D0%BE%D0%BB%D0%BE%D1%82%D0%BE-%D1%81%D0%BC%D0%B0%D0%B9%D0%BB%D0%B8%D0%BA.jpg"}
+            height={600}
+            position={[0, 0]}
+            opacity={1}
+          />
+          <Img
+            ref={img}
+            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/%D0%91%D0%BE%D0%BB%D0%BE%D1%82%D0%BE-%D1%81%D0%BC%D0%B0%D0%B9%D0%BB%D0%B8%D0%BA.jpg/1280px-%D0%91%D0%BE%D0%BB%D0%BE%D1%82%D0%BE-%D1%81%D0%BC%D0%B0%D0%B9%D0%BB%D0%B8%D0%BA.jpg"}
+            height={600}
+            position={[0, 0]}
+            opacity={1}
+          />
+        </Layout>
+        
+    </>, 
   );
 
-  yield* all(
-    grid().stroke('#666', 2),
-    grid().end(1, 2),
-    grid().start(0, 2),
-    grid().spacing(30, 3),
-    title().opacity(1, 3),
-    subtitle().opacity(1, 3),
-  );
+  yield* slideTransition(Direction.Right);
+
+  yield* beginSlide('technology')
+  
 });
