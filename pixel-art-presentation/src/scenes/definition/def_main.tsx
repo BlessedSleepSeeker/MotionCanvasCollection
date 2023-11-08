@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Line, Rect, Node} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, chain, createRef, loop, slideTransition} from '@motion-canvas/core';
+import {Direction, all, beginSlide, chain, createRef, loop, slideTransition, waitFor} from '@motion-canvas/core';
 import dolphin from "../../img/dolphin.png"
 
 export default makeScene2D(function* (view) {
@@ -33,7 +33,7 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -40]} fontSize={200}>Definition</Txt>
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[5 , -40]} fontSize={200}>Definition</Txt>
         <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -20]} fontSize={100}></Txt>
         <Img
             ref={img}
@@ -122,6 +122,13 @@ export default makeScene2D(function* (view) {
     text().opacity(1, 1),
     text().text("Médium ou Courant Artistique ?", 2)
   )
+  yield* beginSlide('how do you define')
+  yield* all(
+    title().opacity(0, 1),
+    text().opacity(1, 1),
+    text().text("Comment définir parfaitement le Pixel-Art ?", 2)
+  )
+
   yield* beginSlide('pillars')
   yield* all(
     text().text("Les Deux Pilliers du Pixel-Art", 2),
@@ -132,7 +139,7 @@ export default makeScene2D(function* (view) {
     text().text("Constraints Breeds Creativity", 2),
     constraints().opacity(1, 2)
   )
-  yield* loop(3,
+  yield* loop(2,
     () => all(
       line().points([[0, 100],
         [0, 500],

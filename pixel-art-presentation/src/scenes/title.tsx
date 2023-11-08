@@ -21,7 +21,7 @@ export default makeScene2D(function* (view) {
         />
       <Layout direction={'column'} alignItems={'center'} layout>
         <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Pixel Art</Txt>
-        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Or the art of putting tiny squares on a grid</Txt>
+        <Txt ref={subtitle} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false}>Ou l'art de mettre des petits carrés sur une grille</Txt>
       </Layout>
     </>,
   );

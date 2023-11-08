@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Rect, Line} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, chain, createRef, slideTransition} from '@motion-canvas/core';
+import {Direction, all, beginSlide, chain, createRef, slideTransition, waitFor} from '@motion-canvas/core';
 import sword5x5 from '../../img/sword5x5.png'
 
 export default makeScene2D(function* (view) {
@@ -58,7 +58,7 @@ export default makeScene2D(function* (view) {
   );
 
   yield* slideTransition(Direction.Right);
-  yield* beginSlide('pixel')
+  yield* waitFor(1)
   yield* all(
     grid().spacing(100, 3),
   );
@@ -68,7 +68,7 @@ export default makeScene2D(function* (view) {
     title().text("Pixel", 1)
   );
 
-  yield* beginSlide('pixel-color')
+  yield* waitFor(4)
   yield* all(
     pixel().fill("68c2d3", 1).to("a2dcc7", 1).to("ede19e", 1).to("d3a068", 1).to("b45252", 1)
   )

@@ -23,7 +23,7 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
       />
-      <Layout ref={title_lay} direction={'column'} alignItems={'center'} gap={0} layout>
+      <Layout ref={title_lay} position={[0, 40]} direction={'column'} alignItems={'center'} gap={0} layout>
         <Txt opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100} wrap={'wrap'}>Les règles sont faites pour être</Txt>
         <Txt opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100} wrap={'wrap'}>Transgressées</Txt>
         <Txt ref={title} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={50} wrap={'wrap'}>(valable uniquement dans l'art)</Txt>

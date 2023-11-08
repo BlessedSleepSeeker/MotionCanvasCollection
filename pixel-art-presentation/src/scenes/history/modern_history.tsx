@@ -75,14 +75,14 @@ export default makeScene2D(function* (view) {
   yield* all(
     img1().opacity(0, 1),
     img2().opacity(1, 1),
-    date().text("Empire Romain - Fin Années 60 > Début 90", 1)
+    date().text("Age d'Or - Fin Années 60 > Début 90", 1)
   )
 
   yield* beginSlide('dark times')
   yield* all(
     img2().opacity(0, 1),
     img3().opacity(1, 1),
-    date().text("Moyen Age - Milieu 90 > 2005~", 1)
+    date().text("Age Sombre - Milieu 90 > 2005~", 1)
   )
   
   yield* beginSlide('renaissance')
@@ -96,7 +96,7 @@ export default makeScene2D(function* (view) {
   yield* all(
     img4().opacity(0, 1), 
     img5().opacity(1, 1),
-    date().text("Moderne - 2012 à Aujourd'hui", 1)
+    date().text("Contemporain - 2012 à Aujourd'hui", 1)
   )
 
   yield* beginSlide('definition')
