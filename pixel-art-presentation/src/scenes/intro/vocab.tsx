@@ -25,12 +25,14 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-        <Txt ref={title} opacity={1} position={[0, -400]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Canvas</Txt>
+        <Txt ref={title} opacity={1} position={[0, -425]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Vocabulaire</Txt>
         <Rect
           ref={pixel}
-          height={0}
-          width={0}
+          height={1}
+          width={1}
+          position={[-50, 50]}
           fill={'#FFFFFF'}
+          opacity={0}
         />
         <Line
         ref={line}
@@ -56,19 +58,27 @@ export default makeScene2D(function* (view) {
   );
 
   yield* slideTransition(Direction.Right);
+  yield* beginSlide('pixel')
   yield* all(
-    grid().spacing(1000, 3),
-    grid().opacity(0, 2),
-    pixel().size(100, 3),
+    grid().spacing(100, 3),
   );
+  yield* all(
+    pixel().opacity(1, 1),
+    pixel().size([100,100], 1),
+    title().text("Pixel", 1)
+  );
+
+  yield* beginSlide('pixel-color')
+  yield* all(
+    pixel().fill("68c2d3", 1).to("a2dcc7", 1).to("ede19e", 1).to("d3a068", 1).to("b45252", 1)
+  )
 
   yield* beginSlide('canvas')
   yield* all(
-    grid().spacing(100, 3),
-    grid().opacity(1, 1),
-    pixel().opacity(0, 1),
+    pixel().opacity(0.3, 1),
   );
   yield* all(
+    title().text("Canvas", 1),
     line().opacity(1, 1),
   );
 
@@ -87,8 +97,9 @@ export default makeScene2D(function* (view) {
   yield* beginSlide('sprite')
 
   yield* all(
+    pixel().opacity(0, 1),
     sprite().opacity(1, 2),
-    title().text("Sprite", 2)
+    title().text("Sprite", 1)
     )
 
   yield* beginSlide('palette')

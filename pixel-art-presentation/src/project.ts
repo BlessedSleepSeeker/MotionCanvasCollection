@@ -10,11 +10,13 @@ import def_main from './scenes/definition/def_main?scene';
 import pareidolia from './scenes/definition/pareidolia?scene';
 import crt from './scenes/technology/crt?scene';
 import color_cycling from './scenes/technology/color_cycling?scene';
+import color_cycling_example from './scenes/technology/color_cycling_example?scene';
 import modern from './scenes/modern/modern?scene';
 import transgression from './scenes/modern/transgression?scene';
+import conclusion from './scenes/conclusion?scene';
 
 import './global.css';
 
 export default makeProject({
-  scenes: [title, example, vocab, palette, history, modern_history, def_main, pareidolia, crt, color_cycling, modern, transgression],
+  scenes: [title, example, vocab, palette, history, modern_history, def_main, pareidolia, crt, color_cycling, color_cycling_example, modern, transgression, conclusion],
 });

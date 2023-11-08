@@ -33,14 +33,13 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={200}>Definition</Txt>
-        <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}></Txt>
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -40]} fontSize={200}>Definition</Txt>
+        <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -20]} fontSize={100}></Txt>
         <Img
             ref={img}
             src={dolphin}
-            width={1200}
-            height={800}
-            position={[0, 0]}
+            height={700}
+            position={[0, 50]}
             opacity={0} 
           />
           <Node ref={constraints} opacity={0} >
@@ -123,10 +122,14 @@ export default makeScene2D(function* (view) {
     text().opacity(1, 1),
     text().text("Médium ou Courant Artistique ?", 2)
   )
+  yield* beginSlide('pillars')
+  yield* all(
+    text().text("Les Deux Pilliers du Pixel-Art", 2),
+    text().position([0, -425 ], 2),
+  )
   yield* beginSlide('constraints')
   yield* all(
     text().text("Constraints Breeds Creativity", 2),
-    text().position([0, -425 ], 2),
     constraints().opacity(1, 2)
   )
   yield* loop(3,
