@@ -1,12 +1,15 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Line} from '@motion-canvas/2d';
 import {Direction, all, beginSlide, createRef, slideTransition} from '@motion-canvas/core';
+import title from '../title';
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const img1 = createRef<Img>();
   const img2 = createRef<Img>();
   const img3 = createRef<Img>();
+  const title = createRef<Txt>();
   const timeline = createRef<Line>();
+  const lay = createRef<Layout>();
 
   view.add(
     <>
@@ -22,8 +25,8 @@ export default makeScene2D(function* (view) {
         end={0}
         />
       <Layout direction={'column'} alignItems={'center'} gap={50} layout>
-        <Txt fontFamily={'Sci-Bi'} fill="#FFF" fontSize={100} antialiased={false}>Inspirations</Txt>
-        <Layout direction={'row'} alignItems={'center'} gap={30} layout>
+        <Txt ref={title} fontFamily={'Sci-Bi'} fill="#FFF" fontSize={200} antialiased={false}>Timeline</Txt>
+        <Layout ref={lay} opacity={0} direction={'row'} alignItems={'center'} gap={30} layout>
           <Img
             ref={img1}
             src={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Pompei_BW_2013-05-13_11-33-36.jpg/1024px-Pompei_BW_2013-05-13_11-33-36.jpg"}
@@ -49,5 +52,11 @@ export default makeScene2D(function* (view) {
   );
   yield* slideTransition(Direction.Bottom);
   
+  yield* all(
+    title().text("Ancêtres", 2),
+    title().fontSize(100, 2),
+    lay().opacity(1, 2),
+  )
+
   yield* beginSlide('modern history')
 });

@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img} from '@motion-canvas/2d';
-import {Center, Direction, all, beginSlide, chain, createRef, slideTransition} from '@motion-canvas/core';
+import {Center, Direction, all, beginSlide, chain, createRef, slideTransition, waitFor} from '@motion-canvas/core';
 import textmod from "../../img/modern/textmodquack.jpg"
 import petscii from "../../img/PETSCII.png"
 
@@ -39,19 +39,13 @@ export default makeScene2D(function* (view) {
   );
 
   yield* slideTransition(Direction.Right);
-  yield* beginSlide('rules are meant to be broken')
+  yield* waitFor(1)
   yield* title().opacity(1, 1)
 
   yield* beginSlide('text art')
   yield* title_lay().opacity(0 , 1),
   yield* all(
     part_title().opacity(1, 1),
-    img().opacity(1, 1),
-  )
-  yield* beginSlide('text mod')
-  yield* chain(
-    img().opacity(0, 1),
-    img().src(petscii, 0),
     img().opacity(1, 1),
   )
 

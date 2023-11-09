@@ -20,23 +20,20 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
       />
-      <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -425]} fill="#FFF" antialiased={false} fontSize={100}>Color Cycling</Txt>
-      <Video ref={color_cycling_vid} src={color_cycle} opacity={1} height={800} position={[0, 50]} loop/>
-        
+      <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -420]} fill="#FFF" antialiased={false} fontSize={100}>Color Cycling</Txt>
+      <Txt opacity={1} fontFamily={'Sci-Bi'} position={[0, -15]} fill="#FFF" antialiased={false} fontSize={80}> 8 Bit & '8 Bitish' Graphics-Outside the Box</Txt>
     </>, 
   );
 
   yield* slideTransition(Direction.Right);
   
   yield* all(
-    title().text("An Example by Mark Ferrari from 1994-1996", 1),
+    title().text("Mark Ferrari - A Master in Color Cycling", 1),
   )
 
   yield* beginSlide('Example')
-  color_cycling_vid().play();
   
-  
-  yield* waitFor(5)
+
   
   yield* beginSlide('Modern')
 });

@@ -28,7 +28,7 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -425]} fill="#FFF" antialiased={false} fontSize={100}>Color Cycling</Txt>
+        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -420]} fill="#FFF" antialiased={false} fontSize={100}>Color Cycling</Txt>
         
         <Node ref={explaination} opacity={0}>
         <Layout position={[-850, 0]} direction={'column'} alignItems={'center'} gap={0} layout>
