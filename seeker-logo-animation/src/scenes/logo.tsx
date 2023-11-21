@@ -1,5 +1,8 @@
-import {Node, Rect, makeScene2D} from '@motion-canvas/2d';
+import {Img, Node, Rect, makeScene2D} from '@motion-canvas/2d';
 import {Vector2, all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import sleepoof from '../img/RealSleepoof.png'
+import insect from '../img/readyforbattle1000.png'
+import dog from '../img/doggo.png'
 
 export default makeScene2D(function* (view) {
   const square1 = createRef<Rect>();
@@ -9,45 +12,56 @@ export default makeScene2D(function* (view) {
   const square5 = createRef<Rect>();
   const square6 = createRef<Rect>();
 
+  // Composite Operations
+  const ImageSource = dog
+  const maskRef = createRef<Node>();
+  const valueRef = createRef<Img>();
+
   view.add(
-    <Node
-     position={[-50, 100]}>
-      <Rect
-        ref={square1}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, -300]}
-      />
-      <Rect
-        ref={square2}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, -200]}
-      />
-      <Rect
-        ref={square3}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, -100]}
-      />
-      <Rect
-        ref={square4}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, 0]}
-      />
-      <Rect
-        ref={square5}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, 100]}
-      />
-      <Rect
-        ref={square6}
-        size={[100, 0]}
-        fill="#fff"
-        position={[-250, 200]}
-      />
+    <Node cache>
+      
+      <Node
+        ref={maskRef}
+        position={[-50, 100]}
+        >
+        <Rect
+          ref={square1}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, -300]}
+        />
+        <Rect
+          ref={square2}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, -200]}
+        />
+        <Rect
+          ref={square3}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, -100]}
+        />
+        <Rect
+          ref={square4}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, 0]}
+        />
+        <Rect
+          ref={square5}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, 100]}
+        />
+        <Rect
+          ref={square6}
+          size={[100, 0]}
+          fill="#fff"
+          position={[-250, 200]}
+        />
+      </Node>
+      <Img ref={valueRef} src={ImageSource} size={[900, 900]} compositeOperation={'source-in'}/>
     </Node>,
   );
   yield* all(
