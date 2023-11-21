@@ -34,6 +34,7 @@ export default makeScene2D(function* (view) {
         size={[800, 800]}
         position={[0, 0]}
         opacity={0}
+        smoothing={false}
       />
       <Layout ref={title_lay} alignContent={'start'} position={[0, -30]}>
         <Txt ref={title}  opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={150}>Pixel-Art Moderne</Txt>
@@ -133,9 +134,9 @@ export default makeScene2D(function* (view) {
   yield* chain(
     example().antialiased(false, 0),
     example().opacity(1, 1),
-    example().scale([10, 10], 1),
+    example().size([null, '1000%'], 1),
     example().position([0, -600], 3).to([-1200, -600], 3).to([0, 0], 3),
-    example().scale([1, 1], 1),
+    example().size([null, null], 1),
   )
 
   yield* beginSlide('going further')

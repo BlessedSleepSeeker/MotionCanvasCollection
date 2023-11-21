@@ -132,11 +132,22 @@ export default makeScene2D(function* (view) {
   yield* beginSlide('pillars')
   yield* all(
     text().text("Les Deux Pilliers du Pixel-Art", 2),
-    text().position([0, -425 ], 2),
+    text().position([0, -420], 2),
   )
+
+  yield* beginSlide('everypixel')
+  yield* all(
+    text().text("Every Pixel Matter", 2),
+    img().opacity(1, 2)
+  )
+
   yield* beginSlide('constraints')
   yield* all(
     text().text("Constraints Breeds Creativity", 2),
+    img().opacity(0, 1)
+  )
+  yield* all(
+    
     constraints().opacity(1, 2)
   )
   yield* loop(2,
@@ -157,13 +168,19 @@ export default makeScene2D(function* (view) {
     )
   );
 
-
-  yield* beginSlide('everypixel')
   yield* all(
-    constraints().opacity(0, 1),
-    text().text("Every Pixel Matter", 2),
-    img().opacity(1, 2)
-  )
+      line().points([[0, 100],
+        [0, 500],
+        [300, 500]], 1),
+      color1().opacity(0, 1),
+      color5().opacity(0, 1),
+      color4().opacity(0, 1),
+      color8().opacity(0, 1),
+      color2().fill("9bbc0f", 1),
+      color3().fill("306230", 1),
+      color6().fill("8bac0f", 1),
+      color7().fill("0f380f", 1),
+    )
 
-  yield* beginSlide('pareidolia')
+  yield* beginSlide('end')
 });

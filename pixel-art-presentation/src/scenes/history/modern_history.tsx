@@ -25,8 +25,8 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-      <Txt opacity={1} position={[0, -450]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Histoire</Txt>
-      <Txt ref={date} opacity={1} position={[0, 475]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Préhistoire - Années 60</Txt>
+      <Txt opacity={1} position={[0, -425]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Histoire</Txt>
+      <Txt ref={date} opacity={1} position={[0, 480]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={100}>Préhistoire - Années 60</Txt>
           <Img
             ref={img1}
             src={"https://upload.wikimedia.org/wikipedia/commons/1/17/Rogue_Screen_Shot_CAR.PNG"}

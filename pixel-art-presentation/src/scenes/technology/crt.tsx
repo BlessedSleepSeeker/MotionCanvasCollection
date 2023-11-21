@@ -68,7 +68,7 @@ export default makeScene2D(function* (view) {
   )
   yield* waitFor(1)
   yield* all(
-    title().position([0, -425], 1),
+    title().position([0, -420], 1),
     title().fontSize(100, 1),
     title().text("LCD", 1),
     dracula_lcd_().opacity(1, 3),
