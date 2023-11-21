@@ -1,5 +1,5 @@
 import {Node, Rect, makeScene2D} from '@motion-canvas/2d';
-import {all, createRef, sequence, waitFor} from '@motion-canvas/core';
+import {Vector2, all, createRef, sequence, waitFor} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
   const square1 = createRef<Rect>();
@@ -68,23 +68,39 @@ export default makeScene2D(function* (view) {
     square1().size([100, 100], 0.5),
   )
   yield* all(
-    square1().size([600, 100], 2),
-    square2().position([250, -200], 2),
-    square3().position([150, -100], 2),
-    square4().position([50, 0], 2),
-    square5().position([-50, 100], 2),
-    square6().size([200, 100], 2),
+    square1().size([600, 100], 1),
+    square2().position([250, -200], 1),
+    square3().position([150, -100], 1),
+    square4().position([50, 0], 1),
+    square5().position([-50, 100], 1),
+    square6().size([200, 100], 1),
   )
-  waitFor(0.5)
+  
+  yield* waitFor(0.5)
+  square1().moveOffset(new Vector2(1, 1)),
+  square2().moveOffset(new Vector2(1, 1)),
+  square3().moveOffset(new Vector2(1, 1)),
+  square4().moveOffset(new Vector2(1, 1)),
+  square5().moveOffset(new Vector2(1, 1)),
+  square6().moveOffset(new Vector2(1, 1)),
 
+  yield* all(
+    square1().size([100, 100], 1),
+    square2().position([350, -200], 1),
+    square3().position([350, -100], 1),
+    square4().position([350, 0], 1),
+    square5().position([350, 100], 1),
+    square6().size([100, 100], 1),
+    square6().position([350, 200], 1),
+  )
   // end
   yield* sequence(
     0.1,
-    square1().size([600, 0], 0.5),
+    square1().size([100, 0], 0.5),
     square2().size([100, 0], 0.5),
     square3().size([100, 0], 0.5),
     square4().size([100, 0], 0.5),
     square5().size([100, 0], 0.5),
-    square6().size([200, 0], 0.5),
+    square6().size([100, 0], 0.5),
   )
 });
