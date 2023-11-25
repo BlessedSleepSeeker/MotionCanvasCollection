@@ -1,0 +1,22 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "tech intro",
+      "targetTime": 3.9489226112908984
+    },
+    {
+      "name": "LCD vs CRT intro",
+      "targetTime": 5.972658521645598
+    },
+    {
+      "name": "CRT time",
+      "targetTime": 9.550768212198841
+    },
+    {
+      "name": "CRT time finished",
+      "targetTime": 12.719031545191852
+    }
+  ],
+  "seed": 2667866913
+}
