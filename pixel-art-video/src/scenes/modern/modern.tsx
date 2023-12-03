@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Node} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, chain, createRef, slideTransition} from '@motion-canvas/core';
+import {Direction, all, waitUntil, chain, createRef, slideTransition} from '@motion-canvas/core';
 import blash from "../../img/modern/blasphemous2.jpg"
 import cloud from "../../img/modern/cloud.png"
 import cloud2 from "../../img/modern/cloud2.jpg"
@@ -12,7 +12,6 @@ import goat from "../../img/modern/oof.png"
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const title = createRef<Txt>();
-  const title_lay = createRef<Layout>();
   const example = createRef<Img>();
 
   view.add(
@@ -36,56 +35,50 @@ export default makeScene2D(function* (view) {
         opacity={0}
         smoothing={false}
       />
-      <Layout ref={title_lay} alignContent={'start'} position={[0, -30]}>
-        <Txt ref={title}  opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={150}>Pixel-Art Moderne</Txt>
-      </Layout>
+      <Txt ref={title} offset={[-1, 0]} opacity={1} position={[-500, -30]} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={150}>Modern Pixel-Art</Txt>
       
     </>,
   );
 
   yield* slideTransition(Direction.Bottom);
-  yield* beginSlide('blasphemous') 
+  yield* waitUntil('seeker') 
   yield* all(
     title().fontSize(100, 1),
-    title().text("Ert - 2023", 1),
+    title().text("BlessedSleepSeeker", 1),
     title().fontSize(75, 1),
-    title_lay().position([-720, -415], 1),
+    title().position([-900, -415], 1),
     example().opacity(1, 1),
   );
 
-  yield* beginSlide('modern example 2')
+  yield* waitUntil('camiunkow')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@CamiUnknown - 2023", 1),
-    title_lay().position([-560, -415], 1),
+    title().text("CamiUnknown", 1),
     example().src(light, 0),
     example().size([null, null], 1),
   );
   yield* example().opacity(1, 1),
 
-  yield* beginSlide('modern example 3')
+  yield* waitUntil('nicoduran')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@N1coDuran - 2023", 1),
-    title_lay().position([-590, -415], 1),
+    title().text("N1coDuran", 1),
     example().src(icelock, 0),
   );
   yield* example().opacity(1, 1),
 
-  yield* beginSlide('modern example 4')
+  yield* waitUntil('royalnaym')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@RoyalNaym - 2023", 1),
-    title_lay().position([-600, -415], 1),
+    title().text("RoyalNaym", 1),
     example().src(minecraft, 0),
   );
   yield* example().opacity(1, 1),
 
-  yield* beginSlide('modern example 5')
+  yield* waitUntil('chelfaust 1')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@chel_faust - 2023", 1),
-    title_lay().position([-585, -415], 1),
+    title().text("chel_faust", 1),
     example().src(cloud, 0),
     example().size([1000, null], 1),
   );
@@ -96,11 +89,9 @@ export default makeScene2D(function* (view) {
     example().size([1000, null], 1),
   )  
 
-  yield* beginSlide('modern example 6')
+  yield* waitUntil('chelfaust 2')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@chel_faust - 2023", 1),
-    title_lay().position([-585, -415], 1),
     example().src(cloud2, 0),
     example().size([1000, null], 1),
   );
@@ -112,21 +103,19 @@ export default makeScene2D(function* (view) {
     example().size([1000, null], 1),
   )
 
-  yield* beginSlide('modern example 7')
+  yield* waitUntil('blasphemous')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("Blashphemous 2 - 2023", 1),
-    title_lay().position([-545, -415], 1),
+    title().text("Blashphemous 2", 1),
     example().src(blash, 0),
     example().size([null, null], 1),
   );
   yield* example().opacity(1, 1),
 
-  yield* beginSlide('modern example 8')
+  yield* waitUntil('pxtommi')
   yield* example().opacity(0, 1),
   yield* all(
-    title().text("@PxTommi - 2023", 1),
-    title_lay().position([-625, -415], 1),
+    title().text("PxTommi", 1),
     example().src(goat, 0),
     example().size([null, null], 1),
   );
@@ -139,5 +128,5 @@ export default makeScene2D(function* (view) {
     example().size([null, null], 1),
   )
 
-  yield* beginSlide('going further')
+  yield* waitUntil('going further')
 });

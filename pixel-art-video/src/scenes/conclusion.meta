@@ -1,5 +1,14 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "thanks",
+      "targetTime": 6.378596912176766
+    },
+    {
+      "name": "video end",
+      "targetTime": 12.75767957264549
+    }
+  ],
   "seed": 1307761682
 }

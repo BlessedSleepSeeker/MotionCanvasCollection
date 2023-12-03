@@ -1,5 +1,18 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "Palette Swap Start",
+      "targetTime": 2.6
+    },
+    {
+      "name": "Palette Swap Full Start",
+      "targetTime": 8.6
+    },
+    {
+      "name": "Palette Swap End",
+      "targetTime": 20.6
+    }
+  ],
   "seed": 2667866913
 }

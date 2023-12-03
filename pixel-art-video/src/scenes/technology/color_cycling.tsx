@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Rect, Line, Node, Video} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, createRef, loop, slideTransition} from '@motion-canvas/core';
+import {Direction, all, beginSlide, createRef, loop, slideTransition, waitFor, waitUntil} from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
@@ -281,7 +281,7 @@ export default makeScene2D(function* (view) {
     title().text("Palette Swapping", 1).to("Color Cycling", 1),
     explaination().opacity(1, 2),
   )
-  yield* beginSlide('Palette Swap')
+  yield* waitUntil('Palette Swap Start')
   //
   //cryptic ocean palette
   yield* loop(2, () => all(
@@ -308,7 +308,7 @@ export default makeScene2D(function* (view) {
       color1().fill("69809e", 0.5).to("4c5c87", 0.5).to("443f7b", 0.5).to("3f2c5f", 0.5).to("2a173b", 0.5).to("95c5ac", 0.5),
   ))
   
-  yield* beginSlide('Palette Swap full')
+  yield* waitUntil('Palette Swap Full Start')
 
   yield* loop(4, () => all(
     
@@ -337,5 +337,5 @@ export default makeScene2D(function* (view) {
       color3().fill("443f7b", 0.5).to("3f2c5f", 0.5).to("2a173b", 0.5).to("95c5ac", 0.5).to("69809e", 0.5).to("4c5c87", 0.5),
       color4().fill("3f2c5f", 0.5).to("2a173b", 0.5).to("95c5ac", 0.5).to("69809e", 0.5).to("4c5c87", 0.5).to("443f7b", 0.5),
   ))
-  yield* beginSlide('Example')
+  yield* waitUntil('Palette Swap End')
 });

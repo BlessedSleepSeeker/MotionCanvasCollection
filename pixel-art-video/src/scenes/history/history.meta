@@ -3,19 +3,19 @@
   "timeEvents": [
     {
       "name": "Ancestors",
-      "targetTime": 4.5619047118652505
+      "targetTime": 2.6
     },
     {
       "name": "Mosaic end",
-      "targetTime": 6.5619047118652505
+      "targetTime": 4.6
     },
     {
       "name": "CrossStitch End",
-      "targetTime": 8.400811423069609
+      "targetTime": 6.438906711204358
     },
     {
       "name": "Point End",
-      "targetTime": 10.436487545816458
+      "targetTime": 8.908165101866137
     }
   ],
   "seed": 2667866913

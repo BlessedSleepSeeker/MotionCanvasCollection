@@ -1,5 +1,42 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "seeker",
+      "targetTime": 6.877062163759358
+    },
+    {
+      "name": "camiunkow",
+      "targetTime": 10.513867389479323
+    },
+    {
+      "name": "nicoduran",
+      "targetTime": 15.93972819714169
+    },
+    {
+      "name": "royalnaym",
+      "targetTime": 21.78747784091925
+    },
+    {
+      "name": "chelfaust 1",
+      "targetTime": 27.529755275668013
+    },
+    {
+      "name": "chelfaust 2",
+      "targetTime": 41.52975527566801
+    },
+    {
+      "name": "blasphemous",
+      "targetTime": 56.635227484696806
+    },
+    {
+      "name": "pxtommi",
+      "targetTime": 63.74864363681995
+    },
+    {
+      "name": "going further",
+      "targetTime": 78.74864363681995
+    }
+  ],
   "seed": 2667866913
 }

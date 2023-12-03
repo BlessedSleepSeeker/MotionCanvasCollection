@@ -1,5 +1,18 @@
 {
   "version": 0,
-  "timeEvents": [],
+  "timeEvents": [
+    {
+      "name": "text art",
+      "targetTime": 7.190027078526324
+    },
+    {
+      "name": "voxel art",
+      "targetTime": 12.56513776744788
+    },
+    {
+      "name": "conclusion",
+      "targetTime": 20.682525891118196
+    }
+  ],
   "seed": 2667866913
 }

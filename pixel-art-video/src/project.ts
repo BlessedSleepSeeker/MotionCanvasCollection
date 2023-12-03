@@ -18,5 +18,5 @@ import conclusion from './scenes/conclusion?scene';
 import './global.css';
 
 export default makeProject({
-  scenes: [title, vocab, palette, def_main, history, crt, color_cycling, color_cycling_example, modern, transgression, conclusion],
+  scenes: [title, vocab, palette, def_main, history, crt, color_cycling, modern, transgression, conclusion],
 });
