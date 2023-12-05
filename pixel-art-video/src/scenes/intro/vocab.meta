@@ -6,16 +6,28 @@
       "targetTime": 9.667605586206474
     },
     {
-      "name": "canvas",
-      "targetTime": 17.879812133090695
+      "name": "pixel end",
+      "targetTime": 17.667605586206474
     },
     {
-      "name": "sprite",
-      "targetTime": 25.235680661826187
+      "name": "canvas size",
+      "targetTime": 19.667605586206474
     },
     {
-      "name": "vocab finished",
-      "targetTime": 31.16056324500787
+      "name": "canvas end",
+      "targetTime": 24.57951943961103
+    },
+    {
+      "name": "sprite end",
+      "targetTime": 30.06852617269341
+    },
+    {
+      "name": "palette sprite",
+      "targetTime": 34.11371463316644
+    },
+    {
+      "name": "palette end",
+      "targetTime": 40.455305142648605
     }
   ],
   "seed": 4027999324
