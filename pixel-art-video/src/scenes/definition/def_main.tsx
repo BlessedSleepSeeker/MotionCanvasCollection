@@ -1,12 +1,22 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Line, Rect, Node} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, chain, createRef, loop, slideTransition, waitFor, waitUntil} from '@motion-canvas/core';
-import dolphin from "../../img/dolphin.png"
+import {Direction, Reference, ThreadGenerator, all, beginSlide, chain, createRef, loop, slideTransition, waitFor, waitUntil} from '@motion-canvas/core';
+import dol1 from "../../img/epm/dol1.png"
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
   const title = createRef<Txt>();
   const text = createRef<Txt>();
-  const img = createRef<Img>();
+
+  const credits = createRef<Txt>();
+  const pxdol1 = createRef<Img>();
+  const px1 = createRef<Rect>();
+  const px2 = createRef<Rect>();
+  const px3 = createRef<Rect>();
+  const px4 = createRef<Rect>();
+  const px5 = createRef<Rect>();
+  const px6 = createRef<Rect>();
+  const px7 = createRef<Rect>();
+
   const line = createRef<Line>();
   const constraints = createRef<Node>();
   const palette = createRef<Layout>();
@@ -36,13 +46,70 @@ export default makeScene2D(function* (view) {
         <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[5 , -40]} fontSize={200}>Definition</Txt>
         <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -20]} fontSize={100}></Txt>
         <Img
-            ref={img}
-            src={dolphin}
-            height={700}
-            position={[0, 50]}
+            ref={pxdol1}
+            src={dol1}
             opacity={0} 
-          />
-          <Node ref={constraints} opacity={0} >
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px1}
+            position={[-665, -105]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px2}
+            position={[-105, -315]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px3}
+            position={[35, -315]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px4}
+            position={[735, -35]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px5}
+            position={[735, 175]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px6}
+            position={[35, 315]}
+            opacity={0}
+        />
+        <Rect 
+            width={70}
+            height={70}
+            fill={'000000'}
+            ref={px7}
+            position={[245, 315]}
+            opacity={0} 
+        />
+        <Txt ref={credits} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, 480]} fontSize={50} >
+          Original Sprite by Frannek
+        </Txt>
+        <Node ref={constraints} opacity={0} >
         <Layout ref={palette} direction={'row'} alignItems={'center'} gap={0} position={[-400, 100]} layout>
         <Layout direction={'column'} alignItems={'center'} gap={0} layout>
           <Rect 
@@ -76,7 +143,7 @@ export default makeScene2D(function* (view) {
             height={100}
             fill={'1b1c33'}
             ref={color5}
-          />
+        />
           <Rect 
             width={100}
             height={100}
@@ -121,14 +188,14 @@ export default makeScene2D(function* (view) {
   yield* all(
     title().opacity(0, 1),
     text().opacity(1, 1),
-    text().text("Medium or Art Form ?", 2)
+    text().text("Medium or Art Form ?", 1.5)
   )
   yield* waitUntil("medium end")
   
   yield* all(
     title().opacity(0, 1),
     text().opacity(1, 1),
-    text().text("What is or isn't pixel-art ?", 2)
+    text().text("What is or isn't pixel-art ?", 1.5)
   )
   yield* waitUntil("define pixelart end")
   
@@ -140,14 +207,49 @@ export default makeScene2D(function* (view) {
 
   yield* all(
     text().text("Every Pixel Matter", 2),
-    img().opacity(1, 2)
+    text().position([0, -440], 2),
+    grid().spacing(70, 2),
+    credits().opacity(1, 2),
   )
-  yield* waitUntil("everypixelmatter end")
-
   yield* all(
-    text().text("Constraints Breeds Creativity", 2),
-    img().opacity(0, 1)
+    pxdol1().opacity(1, 2)
   )
+  yield* waitUntil("example 1 end")
+  yield* chain(
+    blink_in(px1),
+    blink_in(px5),
+    blink_in(px7),
+  )
+  yield* waitUntil("example 2 end")
+  yield* all(
+    px1().opacity(0, 1),
+    px5().opacity(0, 1),
+    px7().opacity(0, 1),
+  )
+  yield* chain(
+    blink_in(px3),
+    blink_in(px4),
+    blink_in(px5),
+    blink_in(px7),
+    blink_in(px6),
+  )
+
+  yield* waitUntil("everypixelmatter end")
+  yield* all(
+    grid().spacing(100, 2),
+    text().position([0, -420], 2),
+    text().text("Constraints Breeds Creativity", 2),
+    pxdol1().opacity(0, 1),
+    px1().opacity(0, 1),
+    px2().opacity(0, 1),
+    px3().opacity(0, 1),
+    px4().opacity(0, 1),
+    px5().opacity(0, 1),
+    px6().opacity(0, 1),
+    px7().opacity(0, 1),
+    credits().opacity(0, 1),
+  )
+  
   yield* all(
     constraints().opacity(1, 2)
   )
@@ -185,3 +287,11 @@ export default makeScene2D(function* (view) {
 
     yield* waitUntil("constraint end")
 });
+
+function* blink_in(px: Reference<Rect>): ThreadGenerator {
+  yield* chain (
+    px().opacity(1, 0),
+    px().fill("white", 0),
+    px().fill("black", 1)
+  )
+}

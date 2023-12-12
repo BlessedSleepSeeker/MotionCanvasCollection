@@ -3,31 +3,31 @@
   "timeEvents": [
     {
       "name": "pixel_color",
-      "targetTime": 9.667605586206474
+      "targetTime": 5.6
     },
     {
       "name": "pixel end",
-      "targetTime": 17.667605586206474
+      "targetTime": 13.6
     },
     {
       "name": "canvas size",
-      "targetTime": 19.667605586206474
+      "targetTime": 15.6
     },
     {
       "name": "canvas end",
-      "targetTime": 24.57951943961103
+      "targetTime": 20.511913853404558
     },
     {
       "name": "sprite end",
-      "targetTime": 30.06852617269341
+      "targetTime": 26.000920586486938
     },
     {
       "name": "palette sprite",
-      "targetTime": 34.11371463316644
+      "targetTime": 30.046109046959966
     },
     {
       "name": "palette end",
-      "targetTime": 40.455305142648605
+      "targetTime": 38.04610904695997
     }
   ],
   "seed": 4027999324
