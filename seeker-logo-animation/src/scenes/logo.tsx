@@ -1,8 +1,9 @@
-import {Img, Node, Rect, makeScene2D} from '@motion-canvas/2d';
-import {Vector2, all, createRef, easeInSine, sequence, tween, waitFor} from '@motion-canvas/core';
+import {Img, Node, Rect, Video, makeScene2D} from '@motion-canvas/2d';
+import {Vector2, all, createRef, easeInOutCubic, sequence, tween, waitFor} from '@motion-canvas/core';
 import sleepoof from '../img/RealSleepoof.png'
 import insect from '../img/readyforbattle1000.png'
 import dog from '../img/doggo.png'
+import video from '../vids/hoverdash.mp4'
 
 export default makeScene2D(function* (view) {
   const square1 = createRef<Rect>();
@@ -11,6 +12,8 @@ export default makeScene2D(function* (view) {
   const square4 = createRef<Rect>();
   const square5 = createRef<Rect>();
   const square6 = createRef<Rect>();
+
+  const vid = createRef<Video>();
 
   // Composite Operations
   const ImageSource = dog
@@ -62,8 +65,10 @@ export default makeScene2D(function* (view) {
         />
       </Node>
       {/*<Img ref={valueRef} src={ImageSource} size={[900, 900]} compositeOperation={'source-in'}/>*/}
+      <Video ref={vid} src={video} compositeOperation={'source-in'}/>
     </Node>,
   );
+  vid().play()
   yield* all(
     square1().offset([-1, 1], 0),
     square2().offset([-1, 1], 0),
@@ -72,6 +77,7 @@ export default makeScene2D(function* (view) {
     square5().offset([-1, 1], 0),
     square6().offset([-1, 1], 0),
   )
+  // moveOffset() also move the node, so we can't use the changeOffset func
   //changeOffset(new Vector2(-1, 1))
   yield* sequence(
     0.1,
@@ -83,18 +89,12 @@ export default makeScene2D(function* (view) {
     square1().size([100, 100], 0.5),
   )
   yield* all(
-    // tween(0.5, value => {square1().size(Vector2.lerp(new Vector2(100, 100), new Vector2(600, 100), easeInSine(value),))}),
-    // tween(0.5, value => {square2().position(Vector2.lerp(new Vector2(-250, -200), new Vector2(250, -200), easeInSine(value),))}),
-    // tween(0.5, value => {square3().position(Vector2.lerp(new Vector2(-250, -100), new Vector2(150, -100), easeInSine(value),))}),
-    // tween(0.5, value => {square4().position(Vector2.lerp(new Vector2(-250, 0), new Vector2(50, 0), easeInSine(value),))}),
-    // tween(0.5, value => {square5().position(Vector2.lerp(new Vector2(-250, 100), new Vector2(-50, 100), easeInSine(value),))}),
-    // tween(0.5, value => {square6().size(Vector2.lerp(new Vector2(100, 100), new Vector2(200, 100), easeInSine(value),))}),
-    square1().size([600, 100], 0.5),
-    square2().position([250, -200], 0.5),
-    square3().position([150, -100], 0.5),
-    square4().position([50, 0], 0.5),
-    square5().position([-50, 100], 0.5),
-    square6().size([200, 100], 0.5),
+    square1().size([600, 100], 0.5, easeInOutCubic),
+    square2().position([250, -200], 0.5, easeInOutCubic),
+    square3().position([150, -100], 0.5, easeInOutCubic),
+    square4().position([50, 0], 0.5, easeInOutCubic),
+    square5().position([-50, 100], 0.5, easeInOutCubic),
+    square6().size([200, 100], 0.5, easeInOutCubic),
   )
   
   yield* waitFor(1)
