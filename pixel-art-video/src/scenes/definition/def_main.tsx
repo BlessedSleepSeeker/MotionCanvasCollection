@@ -9,6 +9,7 @@ export default makeScene2D(function* (view) {
 
   const credits = createRef<Txt>();
   const pxdol1 = createRef<Img>();
+  const pxdol2 = createRef<Node>();
   const px1 = createRef<Rect>();
   const px2 = createRef<Rect>();
   const px3 = createRef<Rect>();
@@ -50,6 +51,22 @@ export default makeScene2D(function* (view) {
             src={dol1}
             opacity={0} 
         />
+        <Node ref={pxdol2} opacity={0}>
+        <Rect
+          position={[-665, 400]}
+          size={[340, 170]}
+          radius={20}
+          stroke={'white'}
+          lineWidth={5}
+        />
+        <Img
+            src={dol1}
+            opacity={1}
+            position={[-665, 400]}
+            size={[300, 150]}
+        />
+        </Node>
+        
         <Rect 
             width={70}
             height={70}
@@ -216,6 +233,7 @@ export default makeScene2D(function* (view) {
   )
   yield* waitUntil("example 1 end")
   yield* chain(
+    pxdol2().opacity(1, 1),
     blink_in(px1),
     blink_in(px5),
     blink_in(px7),
@@ -240,6 +258,7 @@ export default makeScene2D(function* (view) {
     text().position([0, -420], 2),
     text().text("Constraints Breeds Creativity", 2),
     pxdol1().opacity(0, 1),
+    pxdol2().opacity(0, 1),
     px1().opacity(0, 1),
     px2().opacity(0, 1),
     px3().opacity(0, 1),

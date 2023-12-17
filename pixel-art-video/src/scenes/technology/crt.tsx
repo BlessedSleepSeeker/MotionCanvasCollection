@@ -11,8 +11,6 @@ export default makeScene2D(function* (view) {
   const subtitle = createRef<Txt>();
   const dracula_lcd_ = createRef<Img>();
   const dracula_crt_ = createRef<Img>();
-  const monster_lcd_ = createRef<Img>();
-  const monster_crt_ = createRef<Img>();
 
   view.add(
     <>
@@ -32,28 +30,14 @@ export default makeScene2D(function* (view) {
             ref={dracula_lcd_}
             src={dracula_lcd}
             height={800}
-            position={[-400, 50]}
+            position={[0, 100]}
             opacity={0}
         />
         <Img
             ref={dracula_crt_}
             src={dracula_crt}
             height={800}
-            position={[-400, 50]}
-            opacity={0}
-        />
-        <Img
-            ref={monster_lcd_}
-            src={monster_lcd}
-            height={800}
-            position={[400, 50]}
-            opacity={0}
-        />
-        <Img
-            ref={monster_crt_}
-            src={monster_crt}
-            height={800}
-            position={[400, 50]}
+            position={[15, 100]}
             opacity={0}
         />
     </>, 
@@ -73,7 +57,6 @@ export default makeScene2D(function* (view) {
     title().fontSize(100, 1),
     title().text("LCD", 1),
     dracula_lcd_().opacity(1, 3),
-    monster_lcd_().opacity(1, 3),
   )
   yield* waitUntil("CRT time");
 
@@ -81,8 +64,13 @@ export default makeScene2D(function* (view) {
     title().text("CRT", 1),
     dracula_lcd_().opacity(0, 2),
     dracula_crt_().opacity(1, 2),
-    monster_lcd_().opacity(0, 2),
-    monster_crt_().opacity(1, 2),
+  )
+
+  yield* all(
+    dracula_lcd_().opacity(1, 2),
+    dracula_lcd_().position([-425, 100], 2),
+    dracula_crt_().opacity(1, 2),
+    dracula_crt_().position([440, 100], 2),
   )
   
   yield* waitUntil("CRT time finished");

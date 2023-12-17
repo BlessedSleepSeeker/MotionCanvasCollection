@@ -15,7 +15,27 @@
     },
     {
       "name": "Point End",
-      "targetTime": 8.908165101866137
+      "targetTime": 8.533772529096192
+    },
+    {
+      "name": "Ascii Start",
+      "targetTime": 12.533772529096192
+    },
+    {
+      "name": "Ascii End",
+      "targetTime": 15.641818952912104
+    },
+    {
+      "name": "Golden Age End",
+      "targetTime": 20.64697516295829
+    },
+    {
+      "name": "3D End",
+      "targetTime": 23.117055463971102
+    },
+    {
+      "name": "History End",
+      "targetTime": 25.117055463971102
     }
   ],
   "seed": 2667866913

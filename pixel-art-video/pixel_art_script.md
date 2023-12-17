@@ -1,7 +1,7 @@
-# Script Pixel-Art
+# Demistifiyng Pixel-Art
 
-- [Script Pixel-Art](#script-pixel-art)
-  - [Exemple de pixel-art + vocabulaire (max 1 min)](#exemple-de-pixel-art--vocabulaire-max-1-min)
+- [Demistifiyng Pixel-Art](#demistifiyng-pixel-art)
+  - [Intro](#intro)
     - [Slide vocab](#slide-vocab)
   - [Definition (max 3 min)](#definition-max-3-min)
     - [Every pixel matter](#every-pixel-matter)
@@ -12,13 +12,12 @@
     - [CRT vs LCD](#crt-vs-lcd)
     - [Color Cycling/Palette Swapping](#color-cyclingpalette-swapping)
   - [Modern Pixel-Art and Conclusion (2 min)](#modern-pixel-art-and-conclusion-2-min)
+  - [Bibliographie/Links](#bibliographielinks)
 
-## Exemple de pixel-art + vocabulaire (max 1 min)
-
-- Important pour mettre du contexte
+## Intro
 
 ### Slide vocab
- 
+
 - Qu'est ce qu'un pixel ?
   - La plus petite unité possible (sauf triche), généralement un carré.
 - Qu'est ce que le canvas ?
@@ -97,3 +96,7 @@ Petit jeu : voir comment le pilier des contraintes se modifie en fonction des ar
 - Comme toujours dans l'art, les regles sont faites pour etre transgressés.
 - Transgression du Pixel : redeviens des caracteres, ascii art
 - Transgression du Canvas : ajout d'une dimension à celui çi
+
+## Bibliographie/Links
+
+- Donkey Kong Sprites : https://www.mariouniverse.com/sprites-nes-dk/
