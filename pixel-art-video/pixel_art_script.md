@@ -2,7 +2,7 @@
 
 - [Demistifiyng Pixel-Art](#demistifiyng-pixel-art)
   - [Intro](#intro)
-    - [Slide vocab](#slide-vocab)
+    - [Vocab](#vocab)
   - [Definition (max 3 min)](#definition-max-3-min)
     - [Every pixel matter](#every-pixel-matter)
     - [Constraints breeds creativity](#constraints-breeds-creativity)
@@ -16,25 +16,34 @@
 
 ## Intro
 
-### Slide vocab
+- "Hey, I'm Seeker :) Let's talk about pixel art today !"
+- "I feel like when talking about pixel-art, we often see it as an end to a mean, or focus too much on the pixel part. I wanted to focus more on the art part, but we're still gonna cover the basics."
+- "Just to be clear, this isn't a pixel-art tutorial, this is an overview of pixel-art as an art form."
+- "Once this video is over, I hope that you will understand and appreciate pixel-art a little bit more !"
 
-- Qu'est ce qu'un pixel ?
-  - La plus petite unité possible (sauf triche), généralement un carré.
-- Qu'est ce que le canvas ?
-  - La surface disponible (noté largeur par hauteur)
-- Qu'est ce qu'un sprite ?
-  - Le total des pixels posé sur un canvas
-- Qu'est ce que la palette ?
-  - Les couleurs utilisé par un sprite.
-    - Palette Monochromatique
-    - Palette Polychromatique
+### Vocab
+
+- Let's define some importants words first.
+- The pixel-artist is the artist behind the pixel-art. Amazing, I know.
+- The pixel is the basic building block of pixel-art. That was in the name after all. Pixels are square most of time, and have a specific color.
+- The canvas is our available space for drawing pixels. The canvas size is written width by height, here five by five.
+- The sprite is a drawing. The term is mostly used in game development.
+- The palette is the list of colors used on a sprite
+  - Palettes can be created from "top-down" : they are defined in advance and sprites are restricted to theses colors, or created "bottom-up" : they are defined from all the color in a sprite after it has been drawn.
+  - Additionally, you can categorize palettes with their colors : monochromatic palettes have multiples shades of one colors, like the game boy palette on the left, or polychromatic, like the EDG-8 on the right."
+  - [NEED_ADDITIONAL_ANIMATION]
 
 ## Definition (max 3 min)
 
-- 2 questions à 1 millions de dollars
-  - Nouveau Médium (comme sculpture ou musique) ou Mouvement Artistique Peinture ?
-    - https://sml65.wordpress.com/forms-genres-media-and-styles/
-  - Comment définir parfaitement le pixel-art
+- "Now, let's define pixel-art ! First, is pixel-art a medium for painting or it's own art form ? What do you think ?..."
+- "To be honest, this debate has been going on for years, and no clear answers has emerged. My own personal opinion is ever-changing."
+- "Secondly, how do we clearly define what is or isn't pixel-art ? Do not even bother, it was also a trap. No consensus have been reached on this topic either, and it probably never will."
+- These questions are really fascinating to think and discuss, but I haven't got the time for that. I put a few link in description if you are interested about them.
+- However, even if the details are heavily debated, there's a general consensus that pixel-art stand on two pillars. Constraint Breed Creativity and Every Pixel Matter. Thoses two are in symbiosis and feed each other : constraints allow you to pay attention to each pixel, and the fact that each pixel is important and has meaning will constraints you, especially if you have to draw something in a limited time.
+  - [NEED_ADDITIONAL_ANIMATION]
+
+- Links:
+  - https://sml65.wordpress.com/forms-genres-media-and-styles/
 
 ### Every pixel matter
 
