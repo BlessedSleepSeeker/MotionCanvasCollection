@@ -1,5 +1,5 @@
 import {makeScene2D, Circle, Grid, Txt, Layout, Img, Node} from '@motion-canvas/2d';
-import {Direction, all, waitUntil, chain, createRef, slideTransition} from '@motion-canvas/core';
+import {Direction, all, waitUntil, chain, createRef, slideTransition, Vector2} from '@motion-canvas/core';
 import blash from "../../img/modern/blasphemous2.jpg"
 import cloud from "../../img/modern/cloud.png"
 import cloud2 from "../../img/modern/cloud2.jpg"
@@ -41,12 +41,13 @@ export default makeScene2D(function* (view) {
   );
 
   yield* slideTransition(Direction.Bottom);
-  yield* waitUntil('seeker') 
+  yield* waitUntil('seeker')
+  title().moveOffset(new Vector2(-1, -1))
   yield* all(
     title().fontSize(100, 1),
     title().text("BlessedSleepSeeker", 1),
     title().fontSize(75, 1),
-    title().position([-900, -415], 1),
+    title().position([-900, -460], 1),
     example().opacity(1, 1),
   );
 

@@ -1,5 +1,5 @@
-import {makeScene2D, Circle, Grid, Txt, Layout, Img} from '@motion-canvas/2d';
-import {Direction, all, beginSlide, createRef, slideTransition, waitFor, waitUntil} from '@motion-canvas/core';
+import {makeScene2D, Circle, Grid, Txt, Layout, Img, Node} from '@motion-canvas/2d';
+import {Direction, Vector2, all, beginSlide, createRef, sequence, slideTransition, waitFor, waitUntil} from '@motion-canvas/core';
 import dracula_lcd from "../../img/dracula_lcd.jpg"
 import dracula_crt from "../../img/dracula_crt.jpg"
 import monster_lcd from "../../img/monster_lcd.png"
@@ -7,7 +7,7 @@ import monster_crt from "../../img/monster_crt.png"
 
 export default makeScene2D(function* (view) {
   const grid = createRef<Grid>();
-  const title = createRef<Txt>();
+  const title = createRef<Node>();
   const subtitle = createRef<Txt>();
   const dracula_lcd_ = createRef<Img>();
   const dracula_crt_ = createRef<Img>();
@@ -25,7 +25,9 @@ export default makeScene2D(function* (view) {
         start={1}
         end={0}
         />
-        <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} position={[0, -30]} fill="#FFF" antialiased={false} fontSize={150}></Txt>
+        <Node ref={title} position={[0, -30]} >
+          <Txt ref={subtitle} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} fontSize={150}></Txt>
+        </Node>
         <Img
             ref={dracula_lcd_}
             src={dracula_lcd}
@@ -45,23 +47,24 @@ export default makeScene2D(function* (view) {
 
   yield* slideTransition(Direction.Bottom);
   
-  yield* title().text("Pixel-Art and Technology", 2)
+  yield* subtitle().text("Pixel-Art and Technology", 2)
   yield* waitUntil("tech intro");
   
   yield* all(
-    title().text("LCD vs CRT", 1),
+    subtitle().text("LCD vs CRT", 1),
   )
   yield* waitUntil("LCD vs CRT intro");
-  yield* all(
-    title().position([0, -420], 1),
-    title().fontSize(100, 1),
-    title().text("LCD", 1),
+  subtitle().moveOffset(new Vector2(-1, -1))
+  yield* all( 
+    subtitle().position([-80, -450], 1),
+    subtitle().text("LCD", 1),
+    subtitle().fontSize(100, 1),
     dracula_lcd_().opacity(1, 3),
   )
   yield* waitUntil("CRT time");
 
   yield* all(
-    title().text("CRT", 1),
+    subtitle().text("CRT", 1),
     dracula_lcd_().opacity(0, 2),
     dracula_crt_().opacity(1, 2),
   )
