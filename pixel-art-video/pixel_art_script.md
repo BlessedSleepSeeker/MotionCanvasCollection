@@ -42,8 +42,7 @@
 - However, even if the details are heavily debated, there's a general consensus that pixel-art stand on two pillars. Constraint Breed Creativity and Every Pixel Matter. Thoses two are in symbiosis and feed each other : constraints allow you to pay attention to each pixel, and the fact that each pixel is important and has meaning will constraints you, especially if you have to draw something in a limited time.
   - [NEED_ADDITIONAL_ANIMATION]
 
-- Links:
-  - https://sml65.wordpress.com/forms-genres-media-and-styles/
+- https://sml65.wordpress.com/forms-genres-media-and-styles/
 
 ### Every pixel matter
 
@@ -73,6 +72,8 @@
   - Donkey Kong Sprites : https://www.mariouniverse.com/sprites-nes-dk/
 - In the 90s, the technical progress brought a halt to mainstream pixel-art, starting the Dark Ages of Pixel-Art. Pixel-art was still being drawn, but started to have competition : computers started to be powerful enough so that pixel art wasn't the only option anymore. Digital drawing started to emerge, and in gaming especially, 3D graphics became the norm of most of the mainstream productions, and they still haven't looked back.
 - In the mid to late 00s (thousands ?), indie studios especially started to consider pixel-art again, not as a technical limitation, but as a legitimate and deliberate choice. In 2012 with the succes of FEZ, Pixel-art became more and more seen by the general audience as a legitimate option. Fez and 2012 can be seen as a milestone marking the end of the Pixel-Art Renaissance and the start of Modern Pixel-Art.
+
+- whole section : https://en.wikipedia.org/wiki/Pixel_art
 
 ## Interaction avec la technologie (2 min)
 
