@@ -18,6 +18,7 @@ export default makeScene2D(function* (view) {
   const sprite = createRef<Img>();
   
   const paletteNode = createRef<Node>();
+  const gbpalette = createRef<Layout>();
 
   const arrow1 = createRef<Line>();
   const arrow2 = createRef<Line>();
@@ -97,7 +98,7 @@ export default makeScene2D(function* (view) {
           end={0}
         />,
       </Node>
-      <Node ref={paletteNode} position={[-400, 0]} opacity={0}>
+      <Layout ref={paletteNode} position={[0, 0]} direction={'row'} gap={600} opacity={0} layout>
       <Layout direction={'row'} alignItems={'center'} gap={0} layout>
         <Layout direction={'column'} alignItems={'center'} gap={0} layout>
           <Rect 
@@ -122,7 +123,7 @@ export default makeScene2D(function* (view) {
           />
         </Layout>
         <Layout direction={'column'} alignItems={'center'} gap={0} layout>
-        <Rect 
+          <Rect 
             width={100}
             height={100}
             fill={'1b1c33'}
@@ -144,15 +145,47 @@ export default makeScene2D(function* (view) {
           />
         </Layout>
         </Layout>
-      </Node>
+        <Layout ref={gbpalette} direction={'row'} alignItems={'center'} gap={0} opacity={0} layout>
+        <Layout direction={'column'} alignItems={'center'} gap={0} layout>
+          <Rect 
+            width={100}
+            height={100}
+            fill={'9bbc0f'}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'306230'}
+          />
+        </Layout>
+        <Layout direction={'column'} alignItems={'center'} gap={0} layout>
+        <Rect 
+            width={100}
+            height={100}
+            fill={'8bac0f'}
+          />
+          <Rect 
+            width={100}
+            height={100}
+            fill={'0f380f'}
+          />
+        </Layout>
+        </Layout>
+      </Layout>
     </>,
   );
 
-  yield* slideTransition(Direction.Right);
-  yield* waitFor(1)
+  yield* waitFor(0.3)
   yield* all(
     grid().spacing(100, 3),
   );
+
+  yield* all(
+    title().text("Pixel Artist", 0.5)
+  )
+
+  yield* waitUntil("pixel")
+
   yield* all(
     pixel().opacity(1, 1),
     pixel().size([100,100], 1),
@@ -160,7 +193,7 @@ export default makeScene2D(function* (view) {
   );
 
   yield* waitUntil("pixel_color")
-  yield* pixel().fill("1b1c33", 1).to("7b53ad", 1).to("28c641", 1).to("2d93dd", 1).to("e6da29", 1).to("d32734", 1).to("da7d22", 1).to("fdfdf8", 1);
+  yield* pixel().fill("1b1cf8", 1).to("7b53ad", 1).to("28c641", 1).to("2d93dd", 1).to("e6da29", 1).to("d32734", 1).to("da7d22", 1).to("fdfdf8", 1);
 
   yield* waitUntil("pixel end")
   yield* all(
@@ -179,26 +212,31 @@ export default makeScene2D(function* (view) {
     chain(
       line().points([[0, 100],
         [0, 500],
-        [500, 500]], 1),
+        [600, 500]], 1.5),
+      waitFor(0.5),
       line().points([[0, -100],
         [0, 500],
-        [300, 500]], 1),
-      line().points([[0, 0],
+        [300, 500]], 1.5),
+      waitFor(0.5),
+      line().points([[0, 100],
         [0, 500],
-        [500, 500]], 1)
+        [500, 500]], 1),
+      waitFor(0.5),
     ),
     chain(
-      height().text("4", 0.3),
-      waitFor(0.7),
       all(
-        height().text("8", 0.3),
-        width().text("3", 0.3),
-        waitFor(0.7),
+        height().text("4", 0.8),
+        width().text("6", 0.8),
+        waitFor(2),
       ),
       all(
-        height().text("5", 0.7),
-        width().text("5", 0.7),
-        waitFor(0.3),
+        height().text("8", 0.8),
+        width().text("3", 0.8),
+        waitFor(2),
+      ),
+      all(
+        height().text("4", 0.8),
+        width().text("5", 0.8),
       ),
     )
   )
@@ -230,15 +268,23 @@ export default makeScene2D(function* (view) {
 
   yield* waitUntil("palette sprite")
 
-  yield* loop(4, () => chain(
+  yield* chain(
       arrow1().end(1, 0.5),
       arrow1().start(1, 0.5),
-      arrow2().end(1, 0.5),
-      arrow2().start(1, 0.5),
-  ))
+  );
+  yield* waitUntil("top-down end")
 
-  yield* waitUntil("palette end")
+  yield* chain(
+    arrow2().end(1, 0.5),
+    arrow2().start(1, 0.5),
+  );
+  yield* waitUntil("bottom-up end")
+
+  yield* chain(
+    canvasNode().opacity(0, 1),
+    gbpalette().opacity(1, 1),
+  )
   
-
+  yield* waitUntil("palettes end")
 
 });

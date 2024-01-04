@@ -2,32 +2,44 @@
   "version": 0,
   "timeEvents": [
     {
+      "name": "pixel",
+      "targetTime": 4.559818804492657
+    },
+    {
       "name": "pixel_color",
-      "targetTime": 5.6
+      "targetTime": 6.359818804492657
     },
     {
       "name": "pixel end",
-      "targetTime": 13.6
+      "targetTime": 14.359818804492658
     },
     {
       "name": "canvas size",
-      "targetTime": 15.6
+      "targetTime": 16.359818804492658
     },
     {
       "name": "canvas end",
-      "targetTime": 20.511913853404558
+      "targetTime": 21.859818804492658
     },
     {
       "name": "sprite end",
-      "targetTime": 26.000920586486938
+      "targetTime": 26.760739390979595
     },
     {
       "name": "palette sprite",
-      "targetTime": 30.046109046959966
+      "targetTime": 30.805927851452623
     },
     {
-      "name": "palette end",
-      "targetTime": 38.04610904695997
+      "name": "top-down end",
+      "targetTime": 32.9315853395899
+    },
+    {
+      "name": "bottom-up end",
+      "targetTime": 34.713291928574115
+    },
+    {
+      "name": "palettes end",
+      "targetTime": 38.3681516079393
     }
   ],
   "seed": 4027999324
