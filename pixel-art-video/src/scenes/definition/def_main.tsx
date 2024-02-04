@@ -7,6 +7,8 @@ export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
   const text = createRef<Txt>();
 
+  const constraintsTitle = createRef<Node>();
+
   const credits = createRef<Txt>();
   const pxdol1 = createRef<Img>();
   const pxdol2 = createRef<Node>();
@@ -46,6 +48,10 @@ export default makeScene2D(function* (view) {
         />
         <Txt ref={title} opacity={1} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[5 , -40]} fontSize={200}>Definition</Txt>
         <Txt ref={text} opacity={0} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[0, -20]} fontSize={100}></Txt>
+        <Node ref={constraintsTitle} opacity={0}>
+          <Txt opacity={1} size={[400, 400]} textWrap={true} lineHeight={100} textAlign={'center'} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[-470, 30]} fontSize={100}>Every Pixel Matter</Txt>
+          <Txt opacity={1} size={[400, 400]} textWrap={true} lineHeight={100} textAlign={'center'} direction={'column'} fontFamily={'Sci-Bi'} fill="#FFF" antialiased={false} position={[400, 30]} fontSize={100}>Constraints Breeds Creativity</Txt>
+        </Node>
         <Img
             ref={pxdol1}
             src={dol1}
@@ -220,8 +226,15 @@ export default makeScene2D(function* (view) {
     text().text("The 2 Pillars of Pixel-Art", 2),
     text().position([0, -420], 2),
   )
+
+  yield* all(
+    constraintsTitle().opacity(1, 1),
+  )
   yield* waitUntil("pillars intro end")
 
+  yield* all(
+    constraintsTitle().opacity(0, 1),
+  )
   yield* all(
     text().text("Every Pixel Matter", 2),
     text().position([0, -440], 2),
