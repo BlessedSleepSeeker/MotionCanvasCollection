@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Galactical';
+    src: local('Galactical'),
+        url(fonts/Galactical.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Sci-Bi';
+    src: local('Sci-Bi'),
+        url(fonts/Sci-bi.ttf) format('truetype');
+}
